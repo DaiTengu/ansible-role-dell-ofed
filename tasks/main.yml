@@ -1,0 +1,45 @@
+---
+# tasks file for dell-ofed
+
+- name: install required packages
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
+    - perl
+    - python-devel
+    - pciutils
+    - redhat-rpm-config
+    - rpm-build
+    - libxml2-python
+    - libstdc++-devel
+    - libnl
+    - libnl-devel
+    - lsof
+    - gcc-c++
+    - glibc-devel
+    - zlib-devel
+    - gcc
+    - numactl
+    - libtool
+    - numactl-devel
+    - kernel-devel
+
+- name: check if already installed
+  shell: ibv_devices | grep mlx4_0
+  register: result
+  ignore_errors: True
+  changed_when: result|failed
+
+- include: install.yml
+  when: result|failed
+
+
+#
+# http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=FJF94
+#
+# wget http://downloads.dell.com/FOLDER03090591M/1/MLNX_OFED_SRC-3.0-1.0.1.tar.gz
+# tar zxvf MLNX_OFED_SRC-3.0-1.0.1.tar.gz
+# cd MLNX_OFED_SRC-3.0-1.0.1
+# UPDATE ofed.conf
+# ./install.pl --config ofed.conf
+#
