@@ -3,3 +3,5 @@
 
 dell_ofed_verison: 3.0-1.0.1
 dell_ofed_url: http://downloads.dell.com/FOLDER03090591M/1/MLNX_OFED_SRC-{{ dell_ofed_verison }}.tar.gz
+dell_ofed_config: hpc
+#dell_ofed_config: basic

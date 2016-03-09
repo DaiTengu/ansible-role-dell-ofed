@@ -19,10 +19,13 @@
     - glibc-devel
     - zlib-devel
     - gcc
+    - gcc-gfortran
     - numactl
     - libtool
     - numactl-devel
     - kernel-devel
+    - libsysfs
+    - tcl-devel
 
 - name: check if already installed
   shell: ibv_devices | grep mlx4_0
