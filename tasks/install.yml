@@ -12,7 +12,7 @@
     creates: /tmp/MLNX_OFED_SRC-{{ dell_ofed_verison }}
 
 - name: copy ofed.conf
-  copy: src=ofed.conf{{ dell_ofed_config }} dest=/tmp/ofed.conf owner=root group=root mode=0644
+  copy: src=ofed.conf.{{ dell_ofed_config }} dest=/tmp/ofed.conf owner=root group=root mode=0644
 
 - name: install ofed
   shell: ./install.pl --config /tmp/ofed.conf
