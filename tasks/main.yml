@@ -26,6 +26,9 @@
     - kernel-devel
     - libsysfs
     - tcl-devel
+    - glib2-devel
+    - tk
+    - byacc
 
 - name: check if already installed
   shell: ibv_devices | grep mlx4_0
